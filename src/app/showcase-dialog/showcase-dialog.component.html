@@ -1,0 +1,95 @@
+<nb-card accent="info" size="giant">
+
+    <nb-card-body>
+      <nb-stepper #stepper orientation="horizontal">
+
+        <nb-step label="Welcome">
+          <!-- 1. Welcome and Demo-->
+          <h3> This is your league. </h3>
+          Every ESPN fantasy league is assigned a league ID upon creation.
+          <br>
+          <br>
+          This site uses that ID to gather, analyze, and display
+          your data so you can learn more about your league.
+          View your league's current standings, see aggregated totals from
+           past seasons, or even track trades and league trends.
+          <br>
+          <br>
+          <b>Curious? Go ahead, click next.</b>
+        </nb-step>
+
+        <nb-step label="Get Started">
+          <!-- Getting the league ID and note on Private Leagues  -->
+          <h3> Find your ID. </h3>
+          When you visit ESPN.com and go to your league home page, you'll be able
+          to see your league ID in the URL. You can see how it will appear
+          in the example below:
+          <br>
+          <br>
+          www.espn.com/...<b>leagueId=93752695</b>...
+          <br>
+          <br>
+          Simply find this number and copy it down.
+          You can then use this number for the final step! Click next once you
+          have your league ID ready.
+        </nb-step>
+
+        <nb-step label="Enter ID">
+          <!-- League ID entry -->
+          <h3> Enter your ID </h3>
+          Great, we're almost there. Just enter your league ID in the field below
+          and click submit. You'll then be brought to a dashboard made just for your league!
+          <br>
+          <br>
+          <br>
+
+          <div class="league-id-submit-elements">
+            <input nbInput type="number" status="primary" placeholder="League ID" id="league_id"
+            class="text-input-field"/>
+
+            <button nbButton status="primary" size="medium"
+             class="text-input-button-submit" (click)="setLeagueId()"> Submit
+            </button>
+          </div>
+
+          <div class="demo-button">
+            <button nbButton outline status="primary" size="small"
+              (click)="setLeagueIdForDemo()"> demo a real public league
+            </button>
+          </div>
+
+        </nb-step>
+
+    </nb-stepper>
+  </nb-card-body>
+
+  <nb-card-footer>
+    <button nbButton (click)="stepper.previous()">prev</button>
+    <button nbButton style="float: right;" (click)="stepper.next()">next</button>
+  </nb-card-footer>
+</nb-card>
+
+
+<!-- <div class="container-custom">
+
+  <div class="flex-container medium-padding-top">
+    <h2> Please enter your league ID </h2>
+  </div>
+
+  <div class="flex-container small-padding-top">
+    <p> * Private leagues are still being worked on, and the application will only return data from public ESPN leagues. </p>
+  </div>
+
+  <div class="input-label-flex-container small-padding-top">
+      <label for="league_id">League ID:</label>
+      <input type="number" class="custom-input" name="league_id" id="league_id" value="example"/>
+      <button type="button" name="button" (click)="setLeagueId()">Submit</button>
+  </div>
+
+  <div class="flex-container medium-padding-top">
+    <p> To locate your public league ID, visit your ESPN fantasy leagues site homepage and check the url: </p>
+  </div>
+
+  <code (click)="openEspnBrowserLogin()" >espn.com...team?<span class="text-emphasis">leagueId=93752695</span>&team?</code>
+
+</div> -->

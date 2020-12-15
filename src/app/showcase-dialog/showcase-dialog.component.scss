@@ -1,0 +1,35 @@
+@import '../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    max-width: 600px;
+    max-height: 500px;
+  }
+}
+
+.league-id-submit-elements {
+  margin-left: auto;
+  margin-right: auto;
+  width: 275px;
+}
+
+.text-input-field {
+  max-width: 11rem !important;
+  margin-right: 5px;
+}
+
+.text-input-button-submit {
+  margin-bottom: 4px;
+}
+
+.demo-button {
+  margin-top:30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 210px;
+}
+
+.icon-size {
+  height: 35px;
+  width: 35px;
+}

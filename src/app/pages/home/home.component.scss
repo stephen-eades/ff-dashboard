@@ -1,0 +1,57 @@
+:host {
+  display: block;
+  // max-height: 25rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.card-row {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.card-col {
+  flex: 1 0 calc(50% - 1rem);
+  margin: 0 0.5rem;
+}
+
+.league-owners-title {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.team-title-text {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.team-logo {
+  height: 7vh;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.center-text-horizontal {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+
+  .team-logo {
+    height: 7vh;
+    margin-left: -50%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .logo-center-horizontal {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+} /* End Mobile */

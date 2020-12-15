@@ -1,0 +1,38 @@
+<div *ngIf="isLeagueLoaded; else noLeagueLoaded">
+  <div class="header-container">
+
+    <div class="logo-container">
+      <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+        <nb-icon icon="menu-2-outline"></nb-icon>
+      </a>
+        <a class="logo" href="#" (click)="navigateHome()"> {{ leagueName }}</a>
+    </div>
+
+    <button nbButton outline size="tiny" class="theme-button-position" (click)="changeThemeCustom($event)">
+      <nb-icon icon="color-palette-outline"></nb-icon>
+    </button>
+    <button nbButton outline size="tiny" class="league-id-buttom-position" (click)="clearLeagueId()">
+      <nb-icon icon="link-2-outline"></nb-icon>
+    </button>
+
+  </div>
+</div>
+
+<ng-template #noLeagueLoaded>
+  <div class="header-container">
+
+    <div class="logo-container">
+      <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+        <nb-icon icon="menu-2-outline"></nb-icon>
+      </a>
+    </div>
+
+    <button nbButton outline size="tiny" class="theme-button-position" (click)="changeThemeCustom($event)">
+      <nb-icon icon="color-palette-outline"></nb-icon>
+    </button>
+    <button nbButton outline size="tiny" class="league-id-buttom-position" (click)="clearLeagueId()">
+      <nb-icon icon="link-2-outline"></nb-icon>
+    </button>
+
+  </div>
+</ng-template>

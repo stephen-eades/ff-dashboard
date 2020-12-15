@@ -1,0 +1,29 @@
+<nb-card [size]="'large'" accent="info">
+  <nb-card-header>Standings</nb-card-header>
+  <nb-card-body>
+
+    <nb-list class="overflow-override">
+      <nb-list-item *ngFor="let team of getTeams()">
+
+        <div class="container">
+          <div class="row override-row-flex-wrap">
+            <div class="col-3">
+              <img src="{{ team.logo }}" alt="team-logo" style="height: 3vh;">
+            </div>
+            <div class="col-3">
+              <span> {{ getTeamAbbrev(team) }} </span>
+            </div>
+            <div class="col-3">
+              <span> {{ getTeamLocation(team) }} </span>
+            </div>
+            <div class="col-3">
+              <span> {{ getTeamNickname(team) }} </span>
+            </div>
+          </div>
+        </div>
+
+      </nb-list-item>
+    </nb-list>
+
+  </nb-card-body>
+</nb-card>

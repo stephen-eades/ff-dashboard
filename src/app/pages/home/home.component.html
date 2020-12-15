@@ -1,0 +1,71 @@
+<div *ngIf="isLeagueLoaded">
+  <div class="card-row row">
+
+    <div class="card-col col-sm-6">
+
+      <nb-card [size]="'medium'" accent="info">
+        <nb-card-header>Your League</nb-card-header>
+        <nb-card-body> Highlighting info. Year it was created, who the
+        current commissioner is, the number of owners in the league (12 man league, etc.). Include
+        info like if it is a ppr league and league name.
+        <div class="league-owners-title">Teams & Owners</div>
+        <nb-list>
+          <nb-list-item *ngFor="let team of teamsArray">
+
+            <div class="container">
+              <div class="row">
+
+                <div class="col-3 logo-center-horizontal">
+                  <img src="{{ team.logo }}" alt="team-logo" class="team-logo">
+                </div>
+                <div class="col-9 center-text-horizontal">
+                  <div class="team-title-text"> {{ team.location }} {{ team.nickname }} </div>
+                  <div> {{ getOwnerName(team) }} </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </nb-list-item>
+        </nb-list>
+      </nb-card-body>
+      </nb-card>
+
+      <nb-card [size]="'tiny'" accent="danger">
+        <nb-card-header>News & Updates</nb-card-header>
+        <nb-card-body>
+        This site is under construction.
+        We appreciate your patience. Check out the demo league
+        or enter your own ESPN public league ID to test.
+        <br>
+        <br>
+        Projected Completion: 06/01/2021
+        </nb-card-body>
+      </nb-card>
+
+    </div>
+
+    <div class="card-col col-sm-6">
+      <nb-card [size]="'large'" accent="success">
+        <nb-card-header>About Legacy Leagues</nb-card-header>
+        <nb-card-body> Every ESPN fantasy league is assigned a league ID at creation. This site uses that ID
+          to gather, analyze, and display your data so you can learn more about your league. View
+          current standings, see stats from past seasons, or even track trades and league trends.
+          <br>
+          <br>
+          When you visit espn.com and go to your league home page, you'll see the league ID in the URL.
+          The data that you see populating this site is all retreived from your ESPN league, and we update the data
+          everytime you visit this site.
+          <br>
+          <br>
+          We made this site to help fantasy football players get deeper insight about their leagues.
+          <br>
+          <a href="https://google.com"> Click to learn more...</a>
+          <br>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+  </div>
+</div>
