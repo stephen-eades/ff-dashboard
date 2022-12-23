@@ -5,9 +5,10 @@
 
       <nb-card [size]="'medium'" accent="info">
         <nb-card-header>Your League</nb-card-header>
-        <nb-card-body> Highlighting info. Year it was created, who the
-        current commissioner is, the number of owners in the league (12 man league, etc.). Include
-        info like if it is a ppr league and league name.
+        <nb-card-body> The {{ leagueData.settings.name }} was established in {{ inceptionYear }}
+          and is currently led by commissioner {{ commissionerName }}. The {{ leagueData.teams.length }}
+          player league used a {{ leagueData.settings.draftSettings.type.toLowerCase() }} draft to determine teams.
+          The trade dealine is {{ tradeDeadline }}.
         <div class="league-owners-title">Teams & Owners</div>
         <nb-list>
           <nb-list-item *ngFor="let team of teamsArray">
@@ -36,11 +37,11 @@
         <nb-card-header>News & Updates</nb-card-header>
         <nb-card-body>
         This site is under construction.
-        We appreciate your patience. Check out the demo league
-        or enter your own ESPN public league ID to test.
+        We appreciate your patience. We're working on public league access first,
+        and then will focus on private league functionality.
         <br>
         <br>
-        Projected Completion: 06/01/2021
+        Projected Completion: 06/01/2023
         </nb-card-body>
       </nb-card>
 

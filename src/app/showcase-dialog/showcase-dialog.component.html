@@ -1,4 +1,4 @@
-<nb-card accent="info" size="giant">
+<nb-card accent="info" size="giant" style="height: auto; max-height: 600px;">
 
     <nb-card-body>
       <nb-stepper #stepper orientation="horizontal">
@@ -44,19 +44,35 @@
           <br>
 
           <div class="league-id-submit-elements">
-            <input nbInput type="number" status="primary" placeholder="League ID" id="league_id"
+            <input nbInput style="width: 100% !important" type="number" status="primary" placeholder="League ID" id="league_id"
             class="text-input-field"/>
-
-            <button nbButton status="primary" size="medium"
-             class="text-input-button-submit" (click)="setLeagueId()"> Submit
-            </button>
+          </div>
+          <br>
+          <div *ngIf="isPrivateLeague; else isPublicLeague">
+            <div class="league-id-submit-elements">
+              <input nbInput style="width: 100% !important" type="text" status="primary" placeholder="SWID Cookie" id="swid"
+              class="text-input-field"/>
+            </div>
+            <br>
+            <div class="league-id-submit-elements">
+              <input nbInput style="width: 100% !important" type="text" status="primary" placeholder="S2 Cookie" id="espn_s2"
+              class="text-input-field"/>
+            </div>
+            <br>
+            <div class="demo-button">
+              <button nbButton outline status="primary" size="small"
+                (click)="togglePrivateLeagueInput()"> Public league? Click here.
+              </button>
+            </div>
           </div>
 
-          <div class="demo-button">
-            <button nbButton outline status="primary" size="small"
-              (click)="setLeagueIdForDemo()"> demo a real public league
-            </button>
-          </div>
+          <ng-template #isPublicLeague>
+            <div class="demo-button">
+              <button nbButton outline status="primary" size="small"
+                (click)="togglePrivateLeagueInput()"> Private league? Click here.
+              </button>
+            </div>
+          </ng-template>
 
         </nb-step>
 
@@ -65,31 +81,6 @@
 
   <nb-card-footer>
     <button nbButton (click)="stepper.previous()">prev</button>
-    <button nbButton style="float: right;" (click)="stepper.next()">next</button>
+    <button nbButton style="float: right;" (click)="getStepperClick(stepper)">{{ getStepperString(stepper) }}</button>
   </nb-card-footer>
 </nb-card>
-
-
-<!-- <div class="container-custom">
-
-  <div class="flex-container medium-padding-top">
-    <h2> Please enter your league ID </h2>
-  </div>
-
-  <div class="flex-container small-padding-top">
-    <p> * Private leagues are still being worked on, and the application will only return data from public ESPN leagues. </p>
-  </div>
-
-  <div class="input-label-flex-container small-padding-top">
-      <label for="league_id">League ID:</label>
-      <input type="number" class="custom-input" name="league_id" id="league_id" value="example"/>
-      <button type="button" name="button" (click)="setLeagueId()">Submit</button>
-  </div>
-
-  <div class="flex-container medium-padding-top">
-    <p> To locate your public league ID, visit your ESPN fantasy leagues site homepage and check the url: </p>
-  </div>
-
-  <code (click)="openEspnBrowserLogin()" >espn.com...team?<span class="text-emphasis">leagueId=93752695</span>&team?</code>
-
-</div> -->

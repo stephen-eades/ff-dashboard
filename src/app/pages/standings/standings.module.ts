@@ -31,6 +31,6 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     StandingsComponent,
-  ],
+  ]
 })
 export class StandingsModule { }

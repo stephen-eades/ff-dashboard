@@ -32,5 +32,49 @@
 
 .col-3 {
   flex: 0 0 25%;
-  max-width: 100%;
+  min-width: 90px
+}
+
+  /* Mobile */
+  @media screen and (min-width: 0px) and (max-width: 480px) {
+    .col-3 {
+      flex: 0 0 25%;
+      min-width: 90px
+    }
+  }
+
+  /* Tablet */
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    .col-3 {
+      flex: 0 0 25%;
+      min-width: 90px
+    }
+  }
+
+  /* Laptops */
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .col-3 {
+      flex: 0 0 25%;
+      min-width: 90px
+    }
+  }
+
+  /* Desktops */
+  @media screen and (min-width: 1201px) and (max-width: 1500px) {
+    .col-3 {
+      flex: 0 0 25%;
+      min-width: 90px
+    }
+  }
+
+  /* Extended */
+  @media screen and (min-width: 1501px) {
+    .col-3 {
+      flex: 0 0 25%;
+      min-width: 90px
+    }
+  }
+
+.vertical-center {
+  align-items: center;
 }

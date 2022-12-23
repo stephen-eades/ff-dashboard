@@ -2,28 +2,111 @@
   <nb-card-header>Standings</nb-card-header>
   <nb-card-body>
 
-    <nb-list class="overflow-override">
-      <nb-list-item *ngFor="let team of getTeams()">
-
+    <nb-list *ngIf="!mobile; else mobileList" class="overflow-override">
+      <nb-list-item>
         <div class="container">
-          <div class="row override-row-flex-wrap">
-            <div class="col-3">
-              <img src="{{ team.logo }}" alt="team-logo" style="height: 3vh;">
+          <div class="row vertical-center">
+            <div class="col-1">
+              <span> Rank </span>
+            </div>
+            <div class="col-1">
+              <span> Abv. </span>
             </div>
             <div class="col-3">
-              <span> {{ getTeamAbbrev(team) }} </span>
+              <span> Name </span>
             </div>
-            <div class="col-3">
-              <span> {{ getTeamLocation(team) }} </span>
+            <div class="col-2">
+              <span> Division </span>
             </div>
-            <div class="col-3">
-              <span> {{ getTeamNickname(team) }} </span>
+            <div class="col-2">
+              <span> Record </span>
+            </div>
+            <div class="col-2">
+              <span> PF </span>
+            </div>
+            <div class="col-2">
+              <span> PA </span>
             </div>
           </div>
         </div>
+      </nb-list-item>
 
+      <nb-list-item *ngFor="let team of getTeams(); let i = index">
+        <div class="container">
+          <div class="row vertical-center">
+            <div class="col-1">
+              <span> {{ i+1 }} </span>
+            </div>
+            <div class="col-1">
+              <span> {{ getTeamAbbrev(team) }} </span>
+            </div>
+            <div class="col-3">
+              <span> {{ getTeamName(team) }} </span>
+            </div>
+            <div class="col-2">
+              <span> {{ getTeamDivision(team) }} </span>
+            </div>
+            <div class="col-2">
+              <span> {{ getTeamRecord(team) }} </span>
+            </div>
+            <div class="col-2">
+              <span> {{ getTeamPointsFor(team) }} </span>
+            </div>
+            <div class="col-2">
+              <span> {{ getTeamPointsAgainst(team) }} </span>
+            </div>
+          </div>
+        </div>
       </nb-list-item>
     </nb-list>
+
+    <ng-template #mobileList>
+      <nb-list>
+        <nb-list-item>
+          <div class="container">
+            <div class="row vertical-center">
+              <div class="col-2">
+                <span> Rank </span>
+              </div>
+              <div class="col-3">
+                <span> Name </span>
+              </div>
+              <div class="col-3">
+                <span> Record </span>
+              </div>
+              <div class="col-3">
+                <span> PF </span>
+              </div>
+              <div class="col-3">
+                <span> PA </span>
+              </div>
+            </div>
+          </div>
+        </nb-list-item>
+  
+        <nb-list-item *ngFor="let team of getTeams(); let i = index">
+          <div class="container">
+            <div class="row vertical-center">
+              <div class="col-2">
+                <span> {{ i+1 }} </span>
+              </div>
+              <div class="col-3">
+                <span> {{ getTeamName(team) }} </span>
+              </div>
+              <div class="col-3">
+                <span> {{ getTeamRecord(team) }} </span>
+              </div>
+              <div class="col-3">
+                <span> {{ getTeamPointsFor(team) }} </span>
+              </div>
+              <div class="col-3">
+                <span> {{ getTeamPointsAgainst(team) }} </span>
+              </div>
+            </div>
+          </div>
+        </nb-list-item>
+      </nb-list>
+    </ng-template>
 
   </nb-card-body>
 </nb-card>

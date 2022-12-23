@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LeagueHistoryService } from 'app/@core/services/data-services/league-history.service';
-import { LeagueDataService } from 'app/@core/services/data-services/league-data.service';
-import { League } from 'app/models/league.model';
+import { LeagueHistoryService } from '../../@core/services/data-services/league-history.service';
+import { LeagueDataService } from '../../@core/services/data-services/league-data.service';
+import { League } from '../../models/league.model';
+
 
 @Component({
   selector: 'ngx-home',
@@ -13,6 +14,8 @@ export class HomeComponent {
   leagueData: any;
   teamsArray: Array<any> = [];
   isLeagueLoaded: boolean;
+  inceptionYear: number;
+  tradeDeadline: string;
 
   constructor(
     private leagueHistoryService: LeagueHistoryService,
@@ -36,6 +39,8 @@ export class HomeComponent {
           this.leagueData = res;
           this.teamsArray = res.teams;
           this.isLeagueLoaded = true;
+          this.inceptionYear = new Date(this.leagueData.status.activatedDate).getFullYear();
+          this.tradeDeadline = new Date(this.leagueData.settings.tradeSettings.deadlineDate).toDateString();
         }
       },
       (error)=> {
