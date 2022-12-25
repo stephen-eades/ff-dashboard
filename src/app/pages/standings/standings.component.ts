@@ -8,8 +8,7 @@ import { LeagueDataService } from '../../@core/services/data-services/league-dat
 })
 export class StandingsComponent {
 
-  constructor(private leagueDataService: LeagueDataService) {
-  }
+  constructor(private leagueDataService: LeagueDataService) {}
 
   mobile: boolean = false;
 

@@ -1,6 +1,59 @@
-<nb-card [size]="'small'" accent="info">
-  <nb-card-header>Coming Soon...</nb-card-header>
+<nb-card [size]="'large'" accent="info">
+  <nb-card-header>Scores</nb-card-header>
   <nb-card-body>
-    Thanks for your patience as we continue to work. We'll send out an update when everything is ready!
+    
+    <!-- Select Week -->
+    <nb-select placeholder="Select Week" [(selected)]="selectedItem">
+      <nb-option value="1">Week 1</nb-option>
+      <nb-option value="2">Week 2</nb-option>
+      <nb-option value="3">Week 2</nb-option>
+      <nb-option value="4">Week 3</nb-option>
+      <nb-option value="5">Week 4</nb-option>
+      <nb-option value="6">Week 5</nb-option>
+      <nb-option value="7">Week 6</nb-option>
+      <nb-option value="8">Week 7</nb-option>
+      <nb-option value="9">Week 8</nb-option>
+      <nb-option value="10">Week 9</nb-option>
+      <nb-option value="11">Week 10</nb-option>
+      <nb-option value="12">Week 11</nb-option>
+      <nb-option value="13">Week 12</nb-option>
+      <nb-option value="14">Week 1</nb-option>
+      <nb-option value="15">Week 2</nb-option>
+    </nb-select>
+    <br>
+    <br>
+
+    <!-- Could have player scores appear in Window popup using two lists side by side -->
+    <!-- This window opening would trigger the api call to get the player data -->
+    <!-- and I could show a spinner while it loads that data -->
+
+    <!-- Will do an NgFor here -->
+    <nb-card *ngFor="let matchup of getMatchups(); let i = index">
+      <nb-card-body>
+        <div class="matchup-team-row">
+          <div class="team-logo">
+            {{ getTeamLogo(matchup, 'home') }}
+          </div>
+          <div class="team-name">
+            {{ getTeamName(matchup, 'home') }}
+          </div>  
+          <div class="team-score">
+            {{ getTeamScore(matchup, 'home') }}
+          </div>  
+        </div>
+        <div class="matchup-team-row">
+          <div class="team-logo">
+            {{ getTeamLogo(matchup, 'away') }}
+          </div>
+          <div class="team-name">
+            {{ getTeamName(matchup, 'away') }}
+          </div>  
+          <div class="team-score">
+            {{ getTeamScore(matchup, 'away') }}
+          </div> 
+        </div>
+      </nb-card-body>
+    </nb-card>
+
   </nb-card-body>
 </nb-card>

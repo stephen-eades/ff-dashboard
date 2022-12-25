@@ -8,6 +8,7 @@ import {
   NbIconModule,
   NbSelectModule,
   NbListModule,
+  NbLayoutModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -24,6 +25,7 @@ import { ScoresComponent } from './scores.component';
     NbSelectModule,
     NbListModule,
     NbProgressBarModule,
+    NbLayoutModule,
   ],
   declarations: [
     ScoresComponent,

@@ -30,6 +30,7 @@ import {
   NbButtonModule,
   NbInputModule,
   NbIconModule,
+  NbLayoutModule,
 } from '@nebular/theme';
 
 @NgModule({
@@ -45,6 +46,7 @@ import {
     NbInputModule,
     NbIconModule,
     NbCardModule,
+    NbLayoutModule,
     ThemeModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),

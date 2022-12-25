@@ -1,0 +1,18 @@
+.matchup-team-row {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  place-content: space-between;
+}
+
+.team-logo {
+  padding: 5px;
+}
+
+.team-name {
+  padding: 5px;
+}
+
+.team-score {
+  padding: 5px;
+}
