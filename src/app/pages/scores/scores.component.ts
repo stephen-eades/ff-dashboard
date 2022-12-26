@@ -20,6 +20,7 @@ export class ScoresComponent {
     if (window.screen.width < 400) {
       this.mobile = true;
     }
+    // we have to map teams here
   }
 
   getMatchups(): Object {
@@ -38,10 +39,13 @@ export class ScoresComponent {
       for (let i=0; i < this.schedule.length; i++) {
         if (this.selectedItem == this.schedule[i]['matchupPeriodId']) {
           // we found the matchup week, count gamesPerWeek from this index
-          matchups = this.schedule.slice(i, i+gamesPerWeek);
+          this.schedule[i]['away']['team'] = this.getTeamName(this.schedule[i], 'away'); 
+          this.schedule[i]['home']['team'] = this.getTeamName(this.schedule[i], 'home'); 
+          matchups.push(this.schedule[i]);
         }
       }
     }
+    console.log(matchups);
     return matchups;
   }
 
