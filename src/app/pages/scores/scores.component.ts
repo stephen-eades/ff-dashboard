@@ -12,7 +12,9 @@ export class ScoresComponent {
 
   selectedItem = '1';
   mobile: boolean = false;
-  teamMapping: Object = {}
+  schedule: Array<Object> = [];
+  teams: Array<Object> = [];
+  teamMap: Object = {};
 
   ngOnInit() {
     if (window.screen.width < 400) {
@@ -21,32 +23,38 @@ export class ScoresComponent {
   }
 
   getMatchups(): Object {
-    const schedule = this.leagueDataService.getDataProperty("schedule");
     let matchups = [];
+    this.teams = this.leagueDataService.getDataProperty('teams');
+    this.schedule = this.leagueDataService.getDataProperty("schedule");
     const gamesPerWeek = 6; // TODO: this should be: teamsInLeague / 2
 
-    if (schedule) {
-      for (let i=0; i < schedule.length; i++) {
-        if (this.selectedItem == schedule[i].matchupPeriodId) {
+    if (this.teams && this.teams.length && !this.teamMap[2]) {
+      this.teams.forEach((team) => {
+        this.teamMap[team['id']] = team;
+      })
+    }
+
+    if (this.schedule) {
+      for (let i=0; i < this.schedule.length; i++) {
+        if (this.selectedItem == this.schedule[i]['matchupPeriodId']) {
           // we found the matchup week, count gamesPerWeek from this index
-          matchups = schedule.slice(i, i+gamesPerWeek);
+          matchups = this.schedule.slice(i, i+gamesPerWeek);
         }
       }
     }
-    
     return matchups;
   }
 
   getTeamLogo(matchup, status) {
-    return 'logo';
+    return this.teamMap[matchup[status].teamId].logo;
   }
 
   getTeamName(matchup, status) {
-    return 'name';
+    return this.teamMap[matchup[status].teamId].name;
   }
 
   getTeamScore(matchup, status) {
-    return 'score';
+    return matchup[status].totalPoints;
   }
 
 

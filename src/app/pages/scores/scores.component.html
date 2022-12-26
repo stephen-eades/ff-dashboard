@@ -32,7 +32,7 @@
       <nb-card-body>
         <div class="matchup-team-row">
           <div class="team-logo">
-            {{ getTeamLogo(matchup, 'home') }}
+            <img src="{{ getTeamLogo(matchup, 'home') }}" alt="team-logo" class="team-logo">
           </div>
           <div class="team-name">
             {{ getTeamName(matchup, 'home') }}
@@ -43,7 +43,7 @@
         </div>
         <div class="matchup-team-row">
           <div class="team-logo">
-            {{ getTeamLogo(matchup, 'away') }}
+            <img src="{{ getTeamLogo(matchup, 'away') }}" alt="team-logo" class="team-logo">
           </div>
           <div class="team-name">
             {{ getTeamName(matchup, 'away') }}
