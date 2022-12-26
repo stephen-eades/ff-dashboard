@@ -39,7 +39,7 @@ export class HomeComponent {
           this.leagueData = res;
           this.teamsArray = res.teams;
           this.isLeagueLoaded = true;
-          this.inceptionYear = new Date(this.leagueData.status.activatedDate).getFullYear();
+          this.inceptionYear = this.leagueData.status.previousSeasons[0];
           this.tradeDeadline = new Date(this.leagueData.settings.tradeSettings.deadlineDate).toDateString();
         }
       },
